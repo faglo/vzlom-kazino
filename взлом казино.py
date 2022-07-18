@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter.ttk import Progressbar, Style
+import webbrowser
 
 window = Tk()
 window.title("Взлом КАЗИНО")
@@ -12,8 +13,17 @@ style.configure("black.Horizontal.TProgressbar", background='red')
 bar = Progressbar(window, length=200, style='black.Horizontal.TProgressbar')
 bar['value'] = 28
 bar.pack()
-Button(window, text="Да").pack(side='left')
+
+
+def on_click():
+    for i in range(28, 101):
+        bar['value'] = i
+        window.update()
+        if i == 100:
+            webbrowser.open("https://www.youtube.com/watch?v=vTUP8eimDuY")
+
+
+Button(window, text="Да", command=on_click).pack(side='left')
 Button(window, text="Нет").pack(side='right')
 window.iconbitmap("777.ico")
 window.mainloop()
-
